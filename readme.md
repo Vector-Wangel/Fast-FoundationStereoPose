@@ -1,6 +1,6 @@
 # Fast-FoundationStereo: Real-Time Zero-Shot Stereo Matching
 
-This is the official implementation of our paper
+This is the official implementation of our paper accepted to CVPR 2026
 
 [[Website]](https://nvlabs.github.io/Fast-FoundationStereo/) [[Paper]](https://arxiv.org/abs/2512.11130) [[Video]](https://www.youtube.com/watch?v=2BUYZojCzXE)
 
@@ -57,7 +57,7 @@ To trade-off speed and accuracy, there are two options:
 
 # Run demo
 ```
-python scripts/run_demo.py --model_dir weights/2025-11-02-23-36-37/model_best_bp2_serialize.pth --left_file assets/left.png --right_file assets/right.png --intrinsic_file assets/K.txt --out_dir output/ --remove_invisible 0 --denoise_cloud 1  --scale 1 --get_pc 1 --valid_iters 8 --zfar 100
+python scripts/run_demo.py --model_dir weights/23-36-37/model_best_bp2_serialize.pth --left_file assets/left.png --right_file assets/right.png --intrinsic_file assets/K.txt --out_dir output/ --remove_invisible 0 --denoise_cloud 1  --scale 1 --get_pc 1 --valid_iters 8 --zfar 100
 ```
 | Flag                        | Meaning                                                                |
 |-----------------------------|------------------------------------------------------------------------|
@@ -101,7 +101,7 @@ Expect to see results like below:
 For TRT, we recommend first setup env in docker.
 
 ```
-python scripts/make_onnx.py --model_dir weights/2025-11-02-23-36-37/model_best_bp2_serialize.pth --save_path output/ --height 448 --width 640 --valid_iters 8 --max_disp 192
+python scripts/make_onnx.py --model_dir weights/23-36-37/model_best_bp2_serialize.pth --save_path output/ --height 448 --width 640 --valid_iters 8 --max_disp 192
 ```
 
 | Flag              | Meaning                                                                  |
@@ -141,6 +141,16 @@ Below are visualizations of the intermediate results in our pseudo-labeling proc
 
 
 $\color{red}{\textsf{This dataset will be released soon by (03/11).}}$
+
+# Citation
+```bibtex
+@article{wen2026fastfoundationstereo,
+  title={{Fast-FoundationStereo}: Real-Time Zero-Shot Stereo Matching},
+  author={Bowen Wen and Shaurya Dewan and Stan Birchfield},
+  journal={CVPR},
+  year={2026}
+}
+```
 
 # Contact
 Please contact [Bowen Wen](https://wenbowen123.github.io/) for questions and commercial inquiries.
