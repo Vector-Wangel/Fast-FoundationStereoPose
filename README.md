@@ -50,10 +50,12 @@ pip install depthai
 
 ### 4. Download FFS weights
 
-Download from the [official link](https://drive.google.com/drive/folders/1HuTt7UIp7gQsMiDvJwVuWmKpvFzIIMap?usp=drive_link) and place under `weights/`:
+Download the entire `23-36-37` folder from the [official link](https://drive.google.com/drive/folders/1HuTt7UIp7gQsMiDvJwVuWmKpvFzIIMap?usp=drive_link) and place under `weights/`:
 
 ```
-weights/23-36-37/model_best_bp2_serialize.pth
+weights/23-36-37/
+├── cfg.yaml
+└── model_best_bp2_serialize.pth
 ```
 
 ### 5. SAM2 setup (optional, for tracking demos)
