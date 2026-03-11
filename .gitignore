@@ -19,9 +19,7 @@ SAM2_streaming/__pycache__/
 SAM2_streaming/sam2/__pycache__/
 
 # User-specific calibration data
-calibration/stereo_calib.yaml
 calibration/calib_imgs/
-calibration/K_custom.txt
 
 # Model weights
 *.pt
