@@ -1,6 +1,8 @@
-# Fast-FoundationStereo(Pose) Real-Time Toolkit
+# Fast-FoundationStereoPose 
 
-Real-time stereo depth estimation and interactive 3D point cloud visualization using [Fast-FoundationStereo](https://github.com/NVlabs/Fast-FoundationStereo), with optional [SAM2](https://github.com/facebookresearch/sam2) object tracking and 6D oriented bounding box estimation.
+Real-time stereo depth estimation and interactive 3D point cloud visualization using [Fast-FoundationStereo](https://github.com/NVlabs/Fast-FoundationStereo), with optional [SAM2](https://github.com/facebookresearch/sam2) object tracking and 6D oriented bounding box estimation. 
+
+Now with Newton engine integrated for realtime physics prediction.
 
 Built on top of Fast-FoundationStereo (CVPR 2026).
 
@@ -67,40 +69,15 @@ mkdir -p SAM2_streaming/checkpoints/sam2.1
 wget -P SAM2_streaming/checkpoints/sam2.1 https://dl.fbaipublicfiles.com/segment_anything_2/092824/sam2.1_hiera_small.pt
 ```
 
-## Stereo Calibration (USB stereo cameras)
-
-For USB stereo cameras that output side-by-side frames, you need to calibrate first.
-
-### Step 1: Diagnose your board (optional)
-
-```bash
-python calibration/diag_charuco.py
-```
-
-Verifies that the camera can detect your ChArUco board and shows detection results.
-
-### Step 2: Collect calibration images
-
-```bash
-python calibration/collect_cali.py
-```
-
-- Point the camera at the ChArUco board from various angles and distances
-- Press **Space** to capture (only saves when board is detected)
-- Press **q** to quit
-- Aim for 15-30 image pairs
-
-Images are saved to `calibration/calib_imgs/left/` and `calibration/calib_imgs/right/`.
-
-### Step 3: Run calibration
-
-```bash
-python calibration/calibrate.py
-```
-
-Generates `calibration/stereo_calib.yaml` with intrinsics, distortion, rectification maps, and baseline.
-
 ## Usage
+
+### Newton-based real-time physics prediction
+
+Built under the methodlogy of DRIS (Domain-randomized Instance Set). Please refer to [ManiDreams](https://rice-robotpi-lab.github.io/ManiDreams/) and [demo description](https://rice-robotpi-lab.github.io/ManiDreams/real2sim_demo.html) for more details. You can directly play with this demo without installing ManiDreams.
+
+```bash
+python ffsd_demos/d415_ffs_realtime_sim.py
+```
 
 ### Basic stereo point cloud (USB camera)
 
@@ -162,6 +139,39 @@ Key parameters in the demo scripts that you may want to tune:
 | `PCD_STRIDE` | 2 | Point cloud downsampling (higher = fewer points, faster) |
 | `ZFAR` | 5.0 | Maximum depth in meters |
 | `ZNEAR` | 0.05 | Minimum depth in meters |
+
+## Stereo Calibration (USB stereo cameras)
+
+For USB stereo cameras that output side-by-side frames, you need to calibrate first.
+
+### Step 1: Diagnose your board (optional)
+
+```bash
+python calibration/diag_charuco.py
+```
+
+Verifies that the camera can detect your ChArUco board and shows detection results.
+
+### Step 2: Collect calibration images
+
+```bash
+python calibration/collect_cali.py
+```
+
+- Point the camera at the ChArUco board from various angles and distances
+- Press **Space** to capture (only saves when board is detected)
+- Press **q** to quit
+- Aim for 15-30 image pairs
+
+Images are saved to `calibration/calib_imgs/left/` and `calibration/calib_imgs/right/`.
+
+### Step 3: Run calibration
+
+```bash
+python calibration/calibrate.py
+```
+
+Generates `calibration/stereo_calib.yaml` with intrinsics, distortion, rectification maps, and baseline.
 
 ## Notes
 
