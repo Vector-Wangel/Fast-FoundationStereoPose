@@ -1,15 +1,11 @@
-# Fast-FoundationStereoPose 
+# Fast-FoundationStereoPhysics
 
-Real-time stereo depth estimation and interactive 3D point cloud visualization using [Fast-FoundationStereo](https://github.com/NVlabs/Fast-FoundationStereo), with [SAM2](https://github.com/facebookresearch/sam2) object tracking and 6D oriented bounding box estimation. 
-
-Now with Newton engine integrated for realtime physics prediction.
+Real-time stereo depth estimation and interactive 3D point cloud visualization using [Fast-FoundationStereo](https://github.com/NVlabs/Fast-FoundationStereo), with [SAM2](https://github.com/facebookresearch/sam2) object tracking and 6D oriented bounding box estimation. Now with Newton engine integrated for realtime physics prediction.
 <img width="1437" height="828" alt="image" src="https://github.com/user-attachments/assets/1a103f3d-e50e-4b18-8b30-a4af4f000e53" />
-
-Built on top of Fast-FoundationStereo (CVPR 2026).
 
 ## Features
 
-- **Real-time stereo depth** with FFS zero-shot generalization (~7-10 FPS on RTX 3090)
+- **Real-time stereo depth** with FFS zero-shot generalization (~10 FPS on RTX 3070)
 - **Multiple camera support**: USB stereo cameras, Intel RealSense D415, OAK-D Lite
 - **Stereo calibration pipeline**: ChArUco-based calibration for custom stereo rigs
 - **SAM2 interactive tracking**: Click or drag to select objects, real-time mask tracking
@@ -36,8 +32,8 @@ pip install torch==2.6.0 torchvision==0.21.0 xformers --index-url https://downlo
 ### 2. Clone this repo
 
 ```bash
-git clone https://github.com/Vector-Wangel/Fast-FoundationStereoPose.git
-cd Fast-FoundationStereoPose
+git clone https://github.com/Vector-Wangel/Fast-FoundationStereoPhysics.git
+cd Fast-FoundationStereoPhysics
 ```
 
 ### 3. Install dependencies
